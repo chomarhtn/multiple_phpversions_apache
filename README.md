@@ -44,47 +44,73 @@ sudo nano /etc/apache2/sites-available/site1.your_domain.conf
 
 [
 <VirtualHost *:80>
+
      ServerName php74.chomar.linndevhouse.xyz
+     
      DocumentRoot /var/www/php74/
+     
      DirectoryIndex info.php
 
      <Directory /var/www/php74>
+     
         Options Indexes FollowSymLinks MultiViews
+        
         AllowOverride All
+        
         Order allow,deny
+        
         allow from all
+        
      </Directory>
 
 <FilesMatch \.php$>
+
          SetHandler "proxy:unix:/run/php/php7.4-fpm.sock|fcgi://localhost"
+         
     </FilesMatch>
+    
         ErrorLog ${APACHE_LOG_DIR}/site1.your_domain_error.log
+        
         CustomLog ${APACHE_LOG_DIR}/site1.your_domain_access.log combined
+        
 </VirtualHost>
+
 ]
 
 sudo nano /etc/apache2/sites-available/site2.your_domain.conf
 
 [
 <VirtualHost *:80>
-     ServerAdmin admin@site2.your_domain
+
+    
      ServerName site2.your_domain
+     
      DocumentRoot /var/www/site2.your_domain
+     
      DirectoryIndex info.php
 
      <Directory /var/www/site2.your_domain>
+     
         Options Indexes FollowSymLinks MultiViews
+        
         AllowOverride All
+        
         Order allow,deny
+        
         allow from all
+        
      </Directory>
 
     <FilesMatch \.php$>
+    
          SetHandler "proxy:unix:/run/php/php7.3-fpm.sock|fcgi://localhost"
+         
     </FilesMatch>
 
      ErrorLog ${APACHE_LOG_DIR}/site2.your_domain_error.log
+     
      CustomLog ${APACHE_LOG_DIR}/site2.your_domain_access.log combined
+     
 </VirtualHost>
 ]
 
