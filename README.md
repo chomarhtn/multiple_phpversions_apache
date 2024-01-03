@@ -56,7 +56,6 @@ sudo nano /etc/apache2/sites-available/site1.your_domain.conf
      </Directory>
 
 <FilesMatch \.php$>
-        # From the Apache version 2.4.10 and above, use the SetHandler to run PHP as a fastCGI process server
          SetHandler "proxy:unix:/run/php/php7.4-fpm.sock|fcgi://localhost"
     </FilesMatch>
         ErrorLog ${APACHE_LOG_DIR}/site1.your_domain_error.log
@@ -81,7 +80,6 @@ sudo nano /etc/apache2/sites-available/site2.your_domain.conf
      </Directory>
 
     <FilesMatch \.php$>
-        # 2.4.10+ can proxy to unix socket
          SetHandler "proxy:unix:/run/php/php7.3-fpm.sock|fcgi://localhost"
     </FilesMatch>
 
