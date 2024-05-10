@@ -63,11 +63,16 @@ sudo nano /etc/apache2/sites-available/site1.your_domain.conf
         
      </Directory>
 
+
+## Adding to Config
 <FilesMatch \.php$>
 
          SetHandler "proxy:unix:/run/php/php7.4-fpm.sock|fcgi://localhost"
          
     </FilesMatch>
+
+###
+    
     
         ErrorLog ${APACHE_LOG_DIR}/site1.your_domain_error.log
         
