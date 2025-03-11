@@ -80,7 +80,11 @@ sudo nano /etc/apache2/sites-available/site1.your_domain.conf
         
 </VirtualHost>
 
+
 ]
+
+# a2enmod proxy_fcgi setenvif
+# a2enconf php7.2-fpm
 
 sudo nano /etc/apache2/sites-available/site2.your_domain.conf
 
